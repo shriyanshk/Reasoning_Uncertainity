@@ -1,22 +1,22 @@
 # Reasoning_Uncertainity
 
-##Basic Data
+## Basic Data
 
-####AVIRIS 
+#### AVIRIS 
 * Before 2013-06-26
 * After 2013-11-17
 * After 2014-06-03
-####MASTER 
+#### MASTER 
 * Before 2013-06-26
 * After 2013-11-17
 * After 2014-06-03
-####LiDAR 
+#### LiDAR 
 * Before 2010-07-21
 * After 2013-11-15
 
-##Derived Data
+## Derived Data
 
-####AVIRIS
+#### AVIRIS
 * Anthocyanin Reflectance Index 1 ARI1
 * Anthocyanin Reflectance Index 2 ARI2
 * Atmospherically Resistant Vegetation Index ARVI
@@ -47,7 +47,7 @@
 * Structure Insensitive Pigment Index SIPI
 * Vogelmann Red Edge Index 1 VOG1
 * Water Band Index WBI
-####MASTER
+#### MASTER
 * Burned Area Index BAI
 * Char Soil Index CSI
 * Char Soil Index Thermal CSIT
@@ -73,7 +73,7 @@
 * Soil Adjusted Vegetation Index Thermal SAVIT
 * Vegetation Index 3 VI3
 * Vegetation Index 6 Thermal VI6T
-####LiDAR
+#### LiDAR
 * Canopy height model Canopy_height_model_1meter
 * Intensity Intensity_1p5meter
 * Count of all returns 30 meter Count_all_returns_30meter
