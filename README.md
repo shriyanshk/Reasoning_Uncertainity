@@ -17,26 +17,35 @@
 ## Derived Data
 
 #### AVIRIS
-* Anthocyanin Reflectance Index 1 ARI1
+* Anthocyanin Reflectance Index 1 ARI1 
+	* Anthocyanin content estimation. Anthocyanins are purple-ish and absorb green and yellow light wavelengths. 
 * Anthocyanin Reflectance Index 2 ARI2
+	* Anthocyanin content estimation. 
 * Atmospherically Resistant Vegetation Index ARVI
+	* Like NDVI but corrects for atmospheric conditions
 * Carotenoid Reflectance Index 1 CRI1
+	* Carotenoid content estimation. Carotenoids are orange-ish and absorb violet to green light. 
 * Carotenoid Reflectance Index 2 CRI2
+	* Carotenoid content estimation. 
 * Char Soil Index CSI
 * differenced Normalized Burn Ratio dNBR
 * Enhanced Vegetation Index EVI
 * Modified Carotenoid Reflectance Index Green Model mCRIG
+	* 
 * Modified Carotenoid Reflectance Index Red Edge Model mCRIEE
 * Modified Chlorophyll Absorption Ratio Index mCARI
 * Modified Red Edge Normalized Difference Vegetation Index mNDVI705
+	* Chlorophyll content estimation. Chlorophyll absorbs basically everything but green light. 
 * Modified Red Edge Simple Ratio Index mSR705
+	* Clorophyll content estimation. 
 * Modified Soil Adjusted Vegetation Index mSAVI
 * Normalized Burn Ratio NBR
 * Normalized Difference Infrared Index NDII
 * Normalized Difference Lignin Index NDLI
 * Normalized Difference Nitrogen Index NDNI
 * Normalized Difference Vegetation Index NDVI
-* Photochemical Reflectance Index PRI
+* Photochemical Reflectance Index PRI 
+	* Highly correlated with plant pigments. Used to assess plant photosynthetic capacity. 
 * Plant Senescence Reflectance Index PSRI
 * Red Edge Normalized Difference Vegetation Index NDVI705
 * Red Edge Position Index REPI
@@ -49,10 +58,14 @@
 * Water Band Index WBI
 #### MASTER
 * Burned Area Index BAI
+	* Uses red bands and near-infrared bands to figure out if there is more low reflectance stuff (i.e. charcoal). Can get confused with water and cloud shadows.
 * Char Soil Index CSI
+	* Uses increase in shortwave infrared reflectance (heat?) to detect if there has been a fire. 
 * Char Soil Index Thermal CSIT
+	* May be Thermally enhanced version of CSI. 
 * differenced Normalized Burn Ratio dNBR
-* Enhanced Vegetation Index EVI Enhanced Vegetation Index EVI
+	* Better at identifying severely burned area. 
+* Enhanced Vegetation Index EVI 
 * Global Environment Monitoring Index GEMI
 * Global Environment Monitoring Index 3 GEMI3
 * Mid Infrared Burn Index MIRBI
@@ -65,7 +78,7 @@
 * Normalized Burn Ratio Thermal NBRT
 * Normalized Difference Vegetation Index NDVI 
 * Normalized Difference Vegetation Index Thermal NDVIT
-* Relative Burn Ratio RBR Relative Burn Ratio RBR
+* Relative Burn Ratio RBR 
 * Relative difference Normalized Burn Ratio RdNBR 
 * Shortwave Middle Infrared Index SMI
 * Simple Ratio Index SR
