@@ -22,4 +22,12 @@ points3 = pts3 = spTransform(pts2, projection(r))
 print(points3) #get coordinates
 
 #to extract pixels
-#http://gis.stackexchange.com/questions/131554/how-to-locate-pixels-and-bands-of-image-in-r
+#This program will plot the image on RStudio and where ever you click it will give the pixel value.
+library(raster)
+stringName <- "C:/Users/shriy/Downloads/Project Reasoning Data/RimFire_AVIRIS_20130626_L3v1-ARI2.tif"
+importRaster = raster(stringName)
+print(importRaster)
+plot(importRaster)
+#click(importRaster)
+pxy <-locator(1)
+extract(importRaster, cbind(pxy$x, pxy$y))
