@@ -6,6 +6,8 @@ abc2.1 = Implements several ABC algorithms for performing parameter estimation, 
 adespatial - https://cran.r-project.org/web/packages/adespatial/adespatial.pdf
 Multivariate Multiscale Spatial analyiss - Tools for the multiscale spatial analysis of multivariate data. Several methods are based on the use of a spatial weighting matrix and its eigenvector decomposition (Moran's Eigenvectors Maps, MEM).
 
+bnlearn - an R package for learning the graphical structure of Bayesian networks, estimate their parameters and perform some useful inference.
+
 bnspatial - https://cran.r-project.org/web/packages/bnspatial/vignettes/bnspatial.html
 Spatial Implementation of Bayesian Networks and Mapping - Package for the spatial implementation of Bayesian Networks and mapping in geographical space. It makes maps of expected value (or most likely state) given known and unknown conditions, maps of uncertainty measured as coefficient of variation or Shannon index (entropy), maps of probability associated to any states of any node of the network. Some additional features are provided as well: parallel processing options, data discretization routines and function wrappers designed for users with minimal knowledge of the R language. Outputs can be exported to any common GIS format.
 
