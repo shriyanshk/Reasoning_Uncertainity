@@ -39,6 +39,9 @@ Provides an equivalent measure of partial correlation coefficients for high-dime
 Functions that compute probabilistic excursion sets, contour credibility regions, contour avoiding regions, and simultaneous confidence bands for latent Gaussian random processes and fields. The package also contains functions that calculate these quantities for models estimated with the INLA package.
 (https://cran.r-project.org/web/packages/excursions/excursions.pdf)
 
+* **ggm** - Functions for graphical Markov models
+Functions and datasets for maximum likelihood fitting of some classes of graphical Markov models.
+
 * **GiRaF** - Gibbs Random Fields Analysis
 Allows calculation on, and sampling from Gibbs Random Fields, and more precisely general homogeneous Potts model. The primary tool is the exact computation of the intractable normalising constant for small rectangular lattices. Beside the latter function, it contains method that give exact sample from the likelihood for small enough rectangular lattices or approximate sample from the likelihood using MCMC samplers for large lattices.
 (https://cran.r-project.org/web/packages/GiRaF/GiRaF.pdf)
