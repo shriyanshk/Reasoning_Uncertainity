@@ -6,6 +6,8 @@ abc2.1 = Implements several ABC algorithms for performing parameter estimation, 
 adespatial - https://cran.r-project.org/web/packages/adespatial/adespatial.pdf
 Multivariate Multiscale Spatial analyiss - Tools for the multiscale spatial analysis of multivariate data. Several methods are based on the use of a spatial weighting matrix and its eigenvector decomposition (Moran's Eigenvectors Maps, MEM).
 
+BDgraph - Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
+
 bnlearn - an R package for learning the graphical structure of Bayesian networks, estimate their parameters and perform some useful inference.
 
 bnspatial - https://cran.r-project.org/web/packages/bnspatial/vignettes/bnspatial.html
@@ -40,3 +42,12 @@ Functions that compute probabilistic excursion sets, contour credibility regions
 GiRaF - Gibbs Random Fields Analysis
 Allows calculation on, and sampling from Gibbs Random Fields, and more precisely general homogeneous Potts model. The primary tool is the exact computation of the intractable normalising constant for small rectangular lattices. Beside the latter function, it contains method that give exact sample from the likelihood for small enough rectangular lattices or approximate sample from the likelihood using MCMC samplers for large lattices.
 (https://cran.r-project.org/web/packages/GiRaF/GiRaF.pdf)
+
+qpgraph - q-order partial correlation graphs, or qp-graphs for short, are undirected Gaussian graphical Markov models that represent q-order partial correlations. They are useful for learning undirected graphical Gaussian Markov models from data sets where the number of random variables p exceeds the available sample size n as, for instance, in the case of microarray data where they can be employed to reverse engineer a molecular regulatory network. 
+
+# Markov Related Stuff
+# http://blog.revolutionanalytics.com/2016/01/getting-started-with-markov-chains.html
+# http://www.bodowinter.com/tutorial/bw_doodling_markov.pdf
+# https://www.r-bloggers.com/is-deep-learning-a-markov-chain-in-disguise/
+# http://www.moneyscience.com/pg/blog/StatAlgo/read/635759/reinforcement-learning-in-r-markov-decision-process-mdp-and-value-iteration
+# 
