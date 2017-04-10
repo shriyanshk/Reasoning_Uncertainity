@@ -70,24 +70,43 @@ Inequality constraints on the parameters are allowed and can be tested.
 (https://cran.r-project.org/web/packages/hybridModels/hybridModels.pdf)
 	* Issues: Too domain specific to be useful. 
 
-* **HydeNet**
+* **HydeNet** - Facilities for easy implementation of hybrid Bayesian networks using R.
+(https://cran.r-project.org/web/packages/HydeNet/HydeNet.pdf)
+	* Issues: Deals mostly with decision networks and dynamic Bayesian networks. Difficult to determine if it does structure learning. 
+	
+* **interventionalDBN** - This package allows a dynamic Bayesian network to be inferred from microarray timecourse data with interventions (inhibitors).
+(https://cran.r-project.org/web/packages/interventionalDBN/interventionalDBN.pdf)
+	* Issues: Too domain specific (what is an intervention?)
 
-* **interventionalDBN**
+* **LatticeKrig** - Methods for the interpolation of large spatial datasets. 
+(https://cran.r-project.org/web/packages/LatticeKrig/LatticeKrig.pdf)
+	* Issues: Not helpful at all. Dataset generator. 
 
-* **LatticeKrig**
+* **markovchain** - Functions and S4 methods to create and manage discrete time Markov chains more easily.
+(https://cran.r-project.org/web/packages/markovchain/markovchain.pdf)
+	* Issues: Deals with Markov chains, and Markov chains are too simple. 
 
-* **markovchain**
+* **msm** - Functions for fitting continuous-time Markov and hidden Markov multi-state models to longitudinal data
+(https://cran.r-project.org/web/packages/msm/msm.pdf)
+	* Issues: Markov models and hidden markov models not complex enough. 
+	
+* **RandomFields** - Methods for the inference on and the simulation of Gaussian fields are provided, as well as methods for the simulation of extreme value random fields.
+(https://cran.r-project.org/web/packages/RandomFields/RandomFields.pdf)
+	* Issues: Does not do structure learning. 
 
-* **msm**
+* **RandomFieldsUtils** - Various utilities are provided that might be used in spatial statistics and elsewhere. 
+(https://cran.r-project.org/web/packages/RandomFieldsUtils/RandomFieldsUtils.pdf)
+	* Issues: Does not deal with probabilistic graphical models at all. 
 
-* **RandomFields**
+* **SpatioTemporal** - Utilities that estimate, predict and cross-validate the spatio-temporal model. 
+(https://cran.r-project.org/web/packages/SpatioTemporal/SpatioTemporal.pdf)
+	* Issues: Does not do structure learning. 
 
-* **RandomFieldsUtils**
-
-* **SpatioTemporal**
-
-* **spTimer**
-
+* **spTimer** - Fits, spatially predicts and temporally forecasts large amounts of space-time data using Bayesian Gaussian Process (GP) Models, Bayesian Auto-Regressive (AR) Models,
+and Bayesian Gaussian Predictive Processes (GPP) based AR Models for spatiotemporal big-n problems
+(https://cran.r-project.org/web/packages/spTimer/spTimer.pdf)
+	* Issues: Mostly deals with Bayesian models. May still be helpful. 
+	
 # Markov Related Stuff
 * http://blog.revolutionanalytics.com/2016/01/getting-started-with-markov-chains.html
 * http://www.bodowinter.com/tutorial/bw_doodling_markov.pdf
