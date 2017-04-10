@@ -45,15 +45,30 @@ Allows calculation on, and sampling from Gibbs Random Fields, and more precisely
 
 * **qpgraph** - q-order partial correlation graphs, or qp-graphs for short, are undirected Gaussian graphical Markov models that represent q-order partial correlations. They are useful for learning undirected graphical Gaussian Markov models from data sets where the number of random variables p exceeds the available sample size n as, for instance, in the case of microarray data where they can be employed to reverse engineer a molecular regulatory network. 
 
-* **HMM**
+* **HMM** - Easy to use library to setup, apply and make inference with discrete time and discrete space Hidden Markov Models.  
+(https://cran.r-project.org/web/packages/HMM/HMM.pdf)
+	* Issues: Does not do structure learning. HMM's are too simple as they depend only on the previous state in time
 
-* **hmm-discnp**
+* **hmm-discnp** - Hidden Markov Models with Discrete Non-Parametric Observation Distributions
+Fits hidden Markov models with discrete non-parametric observation distributions to data sets. Simulates data from such models. Finds most probable underlying hidden
+states, the most probable sequences of such states, and the log likelihood of a collection of observations given the parameters of the model.
+(https://cran.r-project.org/web/packages/hmm.discnp/hmm.discnp.pdf)
+	* Issues: Does not do structure learning. HMM's are too simple as they depend only on the previous state in time
 
-* **HMMCont**
+* **HMMCont** - Extension of HMM package. 
+(https://cran.r-project.org/web/packages/HMMCont/HMMCont.pdf)
+	* Issues: Does not do structure learning. HMM's are too simple as they depend only on the previous state in time
 
-* **hmmm**
+* **hmmm** - Functions for specifying and fitting marginal models for contingency tables called hierarchical multinomial marginal models
+(hmmm) and their extensions; multinomial Poisson homogeneous (mph) models and homogeneous linear predictor  (hlp) models for contingency
+tables; hidden Markov models where the distribution of the observed variables is described by a marginal model.
+Inequality constraints on the parameters are allowed and can be tested.
+(https://cran.r-project.org/web/packages/hmmm/hmmm.pdf)
+	* Issues: appears to be too simple (models are not general enough). Does not actually deal with conditional or markov random fields. 
 
-* **hybridModels**
+* **hybridModels** - Simulates stochastic hybrid models for transmission of infectious diseases in dynamic networks.
+(https://cran.r-project.org/web/packages/hybridModels/hybridModels.pdf)
+	* Issues: Too domain specific to be useful. 
 
 * **HydeNet**
 
