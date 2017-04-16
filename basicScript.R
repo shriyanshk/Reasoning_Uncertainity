@@ -67,10 +67,10 @@ hist(RasterObject)
 #  In .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...) :
 #  1% of the raster cells were used. 100000 values used.
 ncell(RasterObject)
-[1] 6677132
+#[1] 6677132
 hist(RasterObject, maxpixels=ncell(RasterObject))
 nlayers(RasterObject)
-[1] 1
+#[1] 1
 GDALinfo("C:/Users/shriy/Downloads/Project Reasoning Data/RimFire_AVIRIS_20130626_L3v1-mCRIG.tif")
 #rows        2926 
 #columns     2282 
