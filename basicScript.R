@@ -17,9 +17,13 @@ print(coords(area))
 library(raster)
 library(sp)
 library(rgdal)
-points = SpatialPoints(points,proj4string=CRS("+init=epsg:4326"))
-points3 = pts3 = spTransform(pts2, projection(r))
-print(points3) #get coordinates
+r <- ('Image Path')
+#Input the coordinates in the parenthesis
+test.dat <- structure(list(latitude = c(), longitude = c()), .Names = c("latitude", "longitude"), class="data.frame")
+points <- cbind(test.data$longitude, test.dat$latitude) 
+pts2 <- SpatialPoints(points,proj4string=CRS("+init=epsg:4326"))
+pts3 <- spTransform(pts2, projection(r))
+coordinates(pts3)
 
 #to extract pixels
 #This program will plot the image on RStudio and where ever you click it will give the pixel value.
