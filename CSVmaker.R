@@ -1,17 +1,19 @@
 library(gdalUtils)
 library(raster)
-stringName <- "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/AvirisData/AVIRIS.tif"
+stringName <- "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/AvirisData/AVIRISsub3.tif"
 importRaster <- raster(stringName)
 #src_dataset <- system.file(stringName, package="gdalUtils")
 # Raw output of a single coordinate:
-gdallocationinfo(srcfile=stringName,x=0,y=1000)
+gdallocationinfo(srcfile=stringName,x=10,y=10)
 plot(importRaster)
 
 importRaster
 df = NULL
-for(i in 1:2926){
-  for(j in 1:2282){
-    rbind(df,c(i,j,gdallocationinfo(srcfile=stringName, x=j,y=i,valonly=TRUE))) -> df
+for(i in 1:175){
+  for(j in 1:550){
+    print(i)
+    print(j)
+    df <- rbind(df,c(i,j,gdallocationinfo(srcfile=stringName, x=j,y=i,valonly=TRUE)))
   }
 }
 #print(df)
@@ -29,5 +31,5 @@ cnam <- cbind("x", "y",
               "NDLI-20140603", "NDNI-20140603", "NDVI-20140603", "NDVI705-20140603", "PRI-20140603", "PSRI-20140603",
               "REPI-20140603", "RGRI-20140603", "SIPI-20140603", "SR-20140603", "VOG1-20140603", "WBI-20140603",
               "RBR-20131117", "RdNBR-20131117", "RBR-20140603", "RdNBR-20140603")
-write.table(df, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/AvirisData/AVIRIS.csv", sep = ",", row.names=FALSE,
+write.table(df, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/AvirisData/AVIRISsub3-1.csv", sep = ",", row.names=FALSE,
             col.names = cnam, qmethod = "double")
