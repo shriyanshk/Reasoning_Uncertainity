@@ -10,8 +10,8 @@ plot(importRaster)
 importRaster
 #716, 2207
 df = NULL
-for(i in 566:616){
-  for(j in 1:50){
+for(i in 1698:1748){
+  for(j in 1296:1346){
     print(i)
     print(j)
     df <- rbind(df,c(i,j,gdallocationinfo(srcfile=stringName, x=j,y=i,valonly=TRUE)))
@@ -51,5 +51,5 @@ cnamlidar <- cbind("x", "y", "RBR-20131117", "RdNBR-20131117", "RBR-20140603", "
 #              "RBR-20131117", "RdNBR-20131117", "RBR-20140603", "RdNBR-20140603")
 #write.table(df, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/AvirisData/AVIRISsub2-6.csv", sep = ",", row.names=FALSE,
 #            col.names = cnam, qmethod = "double")
-write.table(df, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARsub2.csv", sep = ",", row.names=FALSE,
+write.table(df, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARsub15.csv", sep = ",", row.names=FALSE,
             col.names = cnamlidar, qmethod = "double")
