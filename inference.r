@@ -1,8 +1,12 @@
 #library(RandomFields)
+source("https://bioconductor.org/biocLite.R")
+biocLite("graph")
+biocLite("RBGL")
+biocLite('Rgraphviz')
 library(RandomFieldsUtils)
 library(pcalg)
-fileVariable <- read.csv(file="C:/Users/shriy/Downloads/Project Reasoning Data/drive-download-20170417T190051Z-001/AVIRISsub3-1.csv", header = TRUE, sep = ",")
-fileVariable1 <- as.matrix(fileVariable[3:74])
+fileVariable <- read.csv(file="C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARsub1NoMissingDiscretized.csv", header = TRUE, sep = ",")
+fileVariable1 <- as.matrix(fileVariable)
 
 #Model Name for loglikelihood
 #model <- RMexp()
@@ -28,19 +32,19 @@ fileVariable1 <- as.matrix(fileVariable[3:74])
   #print(testing)
 #}
 set.seed(10)
-n <- nrow(fileVariable[3:74])
-y <- colnames(fileVariable[3:74])
-x= as.data.frame(matrix(rnorm(fileVariable$ARI1.20130626),ncol = length(y)))
+n <- nrow(fileVariable)
+y <- colnames(fileVariable)
+x= as.data.frame(matrix(rnorm(fileVariable$RBR.20131117),ncol = length(y)))
 #print(n)
 #print(length(y))
 #print(length(x))
 #print(cor(x[sapply(x, is.double)]))
 suffStat = list(C = cor(x), n = n)
 pc.fit <- pc(suffStat, indepTest = gaussCItest, alpha = 0.01, labels = y, verbose = TRUE)
-if (require(Rgraphviz)) {
+
   
-  par(mfrow=c(1,2))
+par(mfrow=c(1,2))
   #par(mar=c(1,1,1,1))
-  plot(pc.fit, main = "Estimated CPDAG")
-  plot(fileVariable, main = "True DAG")
-}
+plot(pc.fit, main = "Estimated CPDAG")
+plot(fileVariable, main = "True DAG")
+
