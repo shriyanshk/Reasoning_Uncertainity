@@ -40,7 +40,7 @@ for (i in 1:mrf.new$n.edges)
   mrf.new$edge.par[[i]][1,2,1] <- 3
   mrf.new$edge.par[[i]][2,1,1] <- 4
 }
-mrf.new <- train.mrf(mrf.new, fileVariable)
+mrf.new <- train.mrf(mrf.new, adjmat)
 #if (require(Rgraphviz)) {
   #The method below is just to split plot in 1,1 or 1,2 to print
   par(mfrow=c(1,1))
