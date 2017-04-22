@@ -24,11 +24,10 @@ suffStat <- list(C = cor(fileVariable), n = numberOfRows)
 
 skel.fit <- skeleton(suffStat, indepTest = gaussCItest, p = ncol(fileVariable), labels = labelName, alpha = 0.01)
 #Print Adjacency Matrix
+adjmat <- as(skel.fit, "amat")
 n.states = 5
 mrf.new <- make.crf(adjmat, n.states)
-
 mrf.new <- make.features(mrf.new)
-
 mrf.new <- make.par(mrf.new, 26)
 
 #mrf.new <- make.par(mrf.new, 4)
