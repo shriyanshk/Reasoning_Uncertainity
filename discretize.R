@@ -6,7 +6,7 @@ newdata = lidavdata[,3:29]
 #discretize
 for(i in colnames(newdata)){
 #find cutpoints
-  binneddata = discretize(newdata[,i], method="cluster", categories=5, onlycuts=TRUE)
+  binneddata = discretize(newdata[,i], method="frequency", categories=5, onlycuts=TRUE)
 
   binneddata
 
@@ -20,6 +20,6 @@ for(i in colnames(newdata)){
 
 
 #write to csv
-write.table(newdata, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingBeforeDiscretized.csv", 
+write.table(newdata, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingBeforeFreq.csv", 
             sep = ",", row.names=FALSE, qmethod = "double")
 

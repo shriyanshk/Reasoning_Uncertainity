@@ -8,8 +8,10 @@ library(pcalg)
 library(CRF)
 library(data.table)
 library(caret)
-fileVariable <- read.csv(file="C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingBeforeDiscretized.csv", header = TRUE, sep = ",")
-
+fileVariable <- read.csv(file="C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingAfterDiscretized.csv", header = TRUE, sep = ",")
+#for(i in 1:ncol(fileVariable)){
+ # hist(x=fileVariable[,i], breaks=6, freq=TRUE, labels=TRUE, main=colnames(fileVariable[i]))
+#}
 #fileVariable <- read.csv(file="C:/Users/shriy/Downloads/drive-download-20170420T000155Z-001/LIDARsub1-2.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 #set.seed(50)
 inferrunner <- function(trainset, testset, runnum){
@@ -25,7 +27,7 @@ inferrunner <- function(trainset, testset, runnum){
   n.states = 5
   mrf.new <- make.crf(adjmat, n.states)
   mrf.new <- make.features(mrf.new)
-  mrf.new <- make.par(mrf.new, 133)
+  mrf.new <- make.par(mrf.new, 121)
   
   #mrf.new <- make.par(mrf.new, 4)
   
@@ -63,7 +65,7 @@ inferrunner <- function(trainset, testset, runnum){
       count = count + 1
     }
   }
-  mrf.new <- train.mrf(mrf.new, as.matrix(trainset), nll = mrf.nll, infer.method = infer.trbp, trace = 0)
+  mrf.new <- train.mrf(mrf.new, as.matrix(trainset), nll = mrf.nll, infer.method = infer.tree, trace = 0)
   mrf.new$node.pot <- mrf.new$node.pot / rowSums(mrf.new$node.pot)
   for(i in 1:(mrf.new$n.edges)){
     
@@ -78,13 +80,13 @@ inferrunner <- function(trainset, testset, runnum){
     testrow <- testset[i,]
     #print(testrow[1,])
     realres = NULL
-    for(j in 1:4){
-      testrow[,j] = 0
+    
+      testrow[1,j] = 0
       realres = cbind(realres, testset[i,j])
-    }
+    
     reallist <- rbind(reallist, realres)
     res <- clamp.crf(mrf.new, c(testrow))
-    inf <- infer.trbp(res)
+    inf <- infer.tree(res)
     ind = NULL
     for(j in 1:nrow(inf$node.bel)){
       ind = cbind(ind, which.max(inf$node.bel[j,]))
@@ -161,5 +163,5 @@ for(i in 1:5){
   results<-rbind(results, res2)
 }
 
-write.table(results, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingBeforeDiscretizedResultsTRBPClustered.csv", 
+write.table(results, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/results/NSAfterTreeFreq.csv", 
             sep = ",", row.names=FALSE, qmethod = "double")
