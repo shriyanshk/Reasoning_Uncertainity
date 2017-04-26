@@ -18,8 +18,9 @@ spatial <- rbind(read.csv("NSAfterTRBPSpatial.csv", header = TRUE, sep = ","))
 nonspatial <- rbind(read.csv("NSAfterTRBPFreq.csv", header = TRUE, sep = ","))
 
 normal <- rbind(read.csv("NSAfterNormFreq.csv", header=TRUE, sep=","))
-random <- rbind(read.csv("NSAfterRandomFreq.csv", header=TRUE, sep=","))
+random <- rbind(read.csv("NSAfterUniformFreq.csv", header=TRUE, sep=","))
 network <- rbind(read.csv("NsAfterTRBPFreq.csv", header=TRUE, sep=","))
+network = network[,3:6]
 
 clus = clus[,3:6]
 summary(clus[,1])
@@ -127,3 +128,34 @@ t.test(spatial[,1], nonspatial[,1], var.equal = FALSE)
 t.test(spatial[,2], nonspatial[,2], var.equal = FALSE)
 t.test(spatial[,3], nonspatial[,3], var.equal = FALSE)
 t.test(spatial[,4], nonspatial[,4], var.equal = FALSE)
+
+summary(network[,1])
+summary(network[,2])
+summary(network[,3])
+summary(network[,4])
+
+summary(normal[,1])
+summary(normal[,2])
+summary(normal[,3])
+summary(normal[,4])
+
+summary(random[,1])
+summary(random[,2])
+summary(random[,3])
+summary(random[,4])
+
+t.test(network[,1], normal[,1], var.equal=FALSE)
+t.test(network[,1], random[,1], var.equal=FALSE)
+t.test(normal[,1], random[,1], var.equal=FALSE)
+
+t.test(network[,2], normal[,2], var.equal=FALSE)
+t.test(network[,2], random[,2], var.equal=FALSE)
+t.test(normal[,2], random[,2], var.equal=FALSE)
+
+t.test(network[,3], normal[,3], var.equal=FALSE)
+t.test(network[,3], random[,3], var.equal=FALSE)
+t.test(normal[,3], random[,3], var.equal=FALSE)
+
+t.test(network[,4], normal[,4], var.equal=FALSE)
+t.test(network[,4], random[,4], var.equal=FALSE)
+t.test(normal[,4], random[,4], var.equal=FALSE)
