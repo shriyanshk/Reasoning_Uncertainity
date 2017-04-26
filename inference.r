@@ -8,7 +8,8 @@ library(pcalg)
 library(CRF)
 library(data.table)
 library(caret)
-fileVariable <- read.csv(file="C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingAfterDiscretized.csv", header = TRUE, sep = ",")
+fileVariable <- read.csv(file="C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/LIDARNoMissingBeforeDiscretized.csv", 
+                         header = TRUE, sep = ",")
 #for(i in 1:ncol(fileVariable)){
  # hist(x=fileVariable[,i], breaks=6, freq=TRUE, labels=TRUE, main=colnames(fileVariable[i]))
 #}
@@ -19,7 +20,7 @@ inferrunner <- function(trainset, testset, runnum){
   suffStat <- list(C = cor(trainset), n = numberOfRows)
   
   #pc.fit <- pc(suffStat, indepTest = gaussCItest, alpha = 0.01, labels = labelName, verbose = TRUE)
-  
+  colnames(trainset) <- c(1:ncol(trainset))
   skel.fit <- skeleton(suffStat, indepTest = gaussCItest, p = ncol(trainset), alpha = 0.01)
   #Print Adjacency Matrix
   adjmat <- as(skel.fit, "amat")
@@ -27,7 +28,7 @@ inferrunner <- function(trainset, testset, runnum){
   n.states = 5
   mrf.new <- make.crf(adjmat, n.states)
   mrf.new <- make.features(mrf.new)
-  mrf.new <- make.par(mrf.new, 121)
+  mrf.new <- make.par(mrf.new, 235)
   
   #mrf.new <- make.par(mrf.new, 4)
   
@@ -65,7 +66,7 @@ inferrunner <- function(trainset, testset, runnum){
       count = count + 1
     }
   }
-  mrf.new <- train.mrf(mrf.new, as.matrix(trainset), nll = mrf.nll, infer.method = infer.tree, trace = 0)
+  mrf.new <- train.mrf(mrf.new, as.matrix(trainset), nll = mrf.nll, infer.method = infer.trbp, trace = 0)
   mrf.new$node.pot <- mrf.new$node.pot / rowSums(mrf.new$node.pot)
   for(i in 1:(mrf.new$n.edges)){
     
@@ -86,7 +87,7 @@ inferrunner <- function(trainset, testset, runnum){
     
     reallist <- rbind(reallist, realres)
     res <- clamp.crf(mrf.new, c(testrow))
-    inf <- infer.tree(res)
+    inf <- infer.trbp(res)
     ind = NULL
     for(j in 1:nrow(inf$node.bel)){
       ind = cbind(ind, which.max(inf$node.bel[j,]))
@@ -106,7 +107,7 @@ inferrunner <- function(trainset, testset, runnum){
     prec = 0
     rec = 0
     acc = 0
-    for(k  in nrow(mat)){
+    for(k  in 1:nrow(mat)){
       s1 <- sum(mat[,k])
       s2 <- sum(mat[k,])
       preci <- mat[k,k]/s1
@@ -145,16 +146,17 @@ results <- NULL
 runcount = 0
 for(i in 1:5){
   runcount = runcount + 1
-  testset1 <- fileVariable1[sample(.N, n/2)]
+  n <- nrow(fileVariable)
+  testset <- fileVariable1[sample(.N)]
+  trainset <- testset[1:(n/2),]
+  #for(j in 1:n){
+  #  if(!nrow(merge(fileVariable1[j,],testset))>0){
+  #   trainset <- rbind(trainset, fileVariable1[j,])
+  #}
+  #}
+  testset1 <- as.data.frame.matrix(testset[(n/2):n,])
   
-  trainset1 <- NULL
-  for(j in 1:n){
-    if(!nrow(merge(fileVariable1[j,],testset1))>0){
-      trainset1 <- rbind(trainset1, fileVariable1[j,])
-    }
-  }
-  testset1 <- as.data.frame.matrix(testset1)
-  trainset1 <- as.data.frame.matrix(trainset1)
+  trainset1 <- as.data.frame.matrix(trainset)
   res1 <- inferrunner(trainset=trainset1, testset=testset1, runnum=runcount)
   runcount = runcount + 1
   res2 <- inferrunner(trainset=testset1, testset=trainset1, runnum=runcount)
@@ -163,5 +165,5 @@ for(i in 1:5){
   results<-rbind(results, res2)
 }
 
-write.table(results, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/results/NSAfterTreeFreq.csv", 
+write.table(results, file = "C:/Users/Jani/Documents/Reasoning/ProjectSources/data/LidarData/results/NSBeforeTRBPCluster.csv", 
             sep = ",", row.names=FALSE, qmethod = "double")
